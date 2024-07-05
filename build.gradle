@@ -1,0 +1,86 @@
+plugins {
+    id 'java'
+    id 'io.quarkus'
+    id 'com.github.ben-manes.versions' version '0.36.0'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-rest'
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured'
+    implementation("io.quarkus:quarkus-hibernate-orm")
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
+    implementation 'io.quarkus:quarkus-rest-client-reactive'
+    implementation 'io.quarkus:quarkus-rest-client-reactive-jackson'
+    implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
+    implementation("io.quarkus:quarkus-logging-json")
+
+    // -----------------------start-----------------------------------
+    // utilisé pour la transformation du fichier wsdl en artefct java
+    implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
+    implementation 'com.sun.xml.ws:jaxws-rt:2.3.3'
+    // ------------------------end------------------------------------
+
+    implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
+    implementation 'com.sun.xml.ws:jaxws-rt:2.3.3'
+
+    //----------------------------start-------------------------------
+    // solution probleme bind
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+
+    implementation 'org.apache.cxf:cxf-rt-frontend-jaxws:3.4.5'
+    implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.4.6'
+    implementation 'org.apache.cxf:cxf-rt-transports-http:3.4.5'
+    implementation 'org.apache.cxf:cxf-rt-features-logging:3.4.5'
+    //----------------------------end---------------------------------
+}
+
+group 'com.example'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+}
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << '-parameters'
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+// Utiliser une configuration différente pour wsimport pour éviter les conflits de versions
+configurations {
+    wsimport
+}
+
+dependencies {
+    wsimport 'com.sun.xml.ws:jaxws-tools:2.3.3'
+}
+
+//task wsimport(type: JavaExec) {
+//    main = 'com.sun.tools.ws.WsImport'
+//    classpath = configurations.wsimport
+//    args = [
+//            '-d', 'src/main/java',   // output directory
+//            '-s', 'src/main/java',   // source directory
+//            '-p', 'com.example.generated', // package name
+//            'src/main/resources/wsdl/CountryInfoService.wsdl' // WSDL file
+//    ]
+//}
+
+//compileJava.dependsOn wsimport
