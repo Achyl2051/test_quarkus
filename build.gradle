@@ -26,8 +26,8 @@ dependencies {
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
     implementation 'jakarta.xml.ws:jakarta.xml.ws-api:3.0.0'
 
-    // Updated dependency for Quarkus 3.12.0
     implementation 'com.sun.xml.ws:jaxws-rt:3.0.0'
+
 }
 
 group 'com.example'
@@ -47,7 +47,7 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-tasks.withType(JavaExec) {
+tasks.withType(JavaExec).configureEach {
     jvmArgs += [
             '--add-opens', 'java.base/jdk.internal.misc=ALL-UNNAMED',
             '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
@@ -55,15 +55,15 @@ tasks.withType(JavaExec) {
 }
 
 
-// Utiliser une configuration différente pour wsimport pour éviter les conflits de versions
+//// Utiliser une configuration différente pour wsimport pour éviter les conflits de versions
 //configurations {
 //    wsimport
 //}
-
+//
 //dependencies {
 //    wsimport 'com.sun.xml.ws:jaxws-tools:2.3.3'
 //}
-
+//
 //task wsimport(type: JavaExec) {
 //    main = 'com.sun.tools.ws.WsImport'
 //    classpath = configurations.wsimport
@@ -74,5 +74,5 @@ tasks.withType(JavaExec) {
 //           'src/main/resources/wsdl/CountryInfoService.wsdl' // WSDL file
 //    ]
 //}
-
+//
 //compileJava.dependsOn wsimport

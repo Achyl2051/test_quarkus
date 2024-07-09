@@ -1,7 +1,6 @@
 package com.example.adapters.resource.clients;
 
-import com.example.adapters.generated.*;
-import com.example.ports.generated.CountryInfoServiceSoapType;
+import com.example.generated.*;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
