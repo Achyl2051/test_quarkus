@@ -2,11 +2,9 @@ package com.example.adapters.resource;
 
 import com.example.adapters.MagasinService;
 import com.example.domain.Magasin;
-import com.example.ports.MessagePort;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
 @Path("/magasins")
@@ -17,16 +15,6 @@ public class MagasinResource {
     private static final Logger LOGGER = Logger.getLogger(MagasinResource.class);
     @Inject
     MagasinService magasinService;
-
-    @RestClient
-    MessagePort message;
-
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getMessage()
-    {
-        return message.getMessage();
-    }
 
     @GET
     @Path("/{id}")

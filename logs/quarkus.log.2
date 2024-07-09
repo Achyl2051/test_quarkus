@@ -1,8 +1,8 @@
-2024-07-09 10:28:46,832 desktop-ojeha3k crud-dev.jar[8968] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.file.rotation.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-2024-07-09 10:28:48,496 desktop-ojeha3k crud-dev.jar[8968] INFO  [io.quarkus] (Quarkus Main Thread) crud 1.0-SNAPSHOT on JVM (powered by Quarkus 3.12.0) started in 3.937s. Listening on: http://localhost:8080
-2024-07-09 10:28:48,498 desktop-ojeha3k crud-dev.jar[8968] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2024-07-09 10:28:48,498 desktop-ojeha3k crud-dev.jar[8968] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
-2024-07-09 10:31:18,651 desktop-ojeha3k crud-dev.jar[8968] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /countryinfo/continents failed, error id: d46e0046-227a-4549-ae52-578cbb68064c-1: java.lang.ExceptionInInitializerError
+2024-07-09 10:17:48,675 desktop-ojeha3k crud-dev.jar[880] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.file.rotation.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2024-07-09 10:17:50,323 desktop-ojeha3k crud-dev.jar[880] INFO  [io.quarkus] (Quarkus Main Thread) crud 1.0-SNAPSHOT on JVM (powered by Quarkus 3.12.0) started in 3.901s. Listening on: http://localhost:8080
+2024-07-09 10:17:50,325 desktop-ojeha3k crud-dev.jar[880] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2024-07-09 10:17:50,325 desktop-ojeha3k crud-dev.jar[880] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2024-07-09 10:17:57,874 desktop-ojeha3k crud-dev.jar[880] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /countryinfo/continents failed, error id: d857aa5c-3f33-4041-ad17-38256a8b1fe1-1: java.lang.ExceptionInInitializerError
 	at com.sun.xml.ws.model.WrapperBeanGenerator.createRequestWrapperBean(WrapperBeanGenerator.java:274)
 	at com.sun.xml.ws.model.RuntimeModeler.getRequestWrapperClass(RuntimeModeler.java:345)
 	at com.sun.xml.ws.model.RuntimeModeler.processDocWrappedMethod(RuntimeModeler.java:771)
@@ -44,7 +44,7 @@ Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field p
 	at com.sun.xml.ws.model.Injector.<clinit>(Injector.java:66)
 	... 31 more
 
-2024-07-09 10:31:51,123 desktop-ojeha3k crud-dev.jar[8968] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /countryinfo/continents failed, error id: d46e0046-227a-4549-ae52-578cbb68064c-2: java.lang.NoClassDefFoundError: Could not initialize class com.sun.xml.ws.model.Injector
+2024-07-09 10:20:34,054 desktop-ojeha3k crud-dev.jar[880] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /countryinfo/continents failed, error id: d857aa5c-3f33-4041-ad17-38256a8b1fe1-2: java.lang.NoClassDefFoundError: Could not initialize class com.sun.xml.ws.model.Injector
 	at com.sun.xml.ws.model.WrapperBeanGenerator.createRequestWrapperBean(WrapperBeanGenerator.java:274)
 	at com.sun.xml.ws.model.RuntimeModeler.getRequestWrapperClass(RuntimeModeler.java:345)
 	at com.sun.xml.ws.model.RuntimeModeler.processDocWrappedMethod(RuntimeModeler.java:771)

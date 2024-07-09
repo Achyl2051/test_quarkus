@@ -23,24 +23,11 @@ dependencies {
     implementation 'io.quarkus:quarkus-resteasy-reactive-jackson'
     implementation("io.quarkus:quarkus-logging-json")
 
-    // -----------------------start-----------------------------------
-    // utilisé pour la transformation du fichier wsdl en artefct java
-    implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
-    implementation 'com.sun.xml.ws:jaxws-rt:2.3.3'
-    // ------------------------end------------------------------------
-
-    implementation 'com.sun.xml.ws:jaxws-tools:2.3.3'
-    implementation 'com.sun.xml.ws:jaxws-rt:2.3.3'
-
-    //----------------------------start-------------------------------
-    // solution probleme bind
     implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.1'
+    implementation 'jakarta.xml.ws:jakarta.xml.ws-api:3.0.0'
 
-    implementation 'org.apache.cxf:cxf-rt-frontend-jaxws:3.4.5'
-    implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.4.6'
-    implementation 'org.apache.cxf:cxf-rt-transports-http:3.4.5'
-    implementation 'org.apache.cxf:cxf-rt-features-logging:3.4.5'
-    //----------------------------end---------------------------------
+    // Updated dependency for Quarkus 3.12.0
+    implementation 'com.sun.xml.ws:jaxws-rt:3.0.0'
 }
 
 group 'com.example'
@@ -51,9 +38,6 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-test {
-    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
-}
 compileJava {
     options.encoding = 'UTF-8'
     options.compilerArgs << '-parameters'
@@ -63,23 +47,31 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-// Utiliser une configuration différente pour wsimport pour éviter les conflits de versions
-configurations {
-    wsimport
+tasks.withType(JavaExec) {
+    jvmArgs += [
+            '--add-opens', 'java.base/jdk.internal.misc=ALL-UNNAMED',
+            '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
+    ]
 }
 
-dependencies {
-    wsimport 'com.sun.xml.ws:jaxws-tools:2.3.3'
-}
+
+// Utiliser une configuration différente pour wsimport pour éviter les conflits de versions
+//configurations {
+//    wsimport
+//}
+
+//dependencies {
+//    wsimport 'com.sun.xml.ws:jaxws-tools:2.3.3'
+//}
 
 //task wsimport(type: JavaExec) {
 //    main = 'com.sun.tools.ws.WsImport'
 //    classpath = configurations.wsimport
-//    args = [
+//   args = [
 //            '-d', 'src/main/java',   // output directory
 //            '-s', 'src/main/java',   // source directory
-//            '-p', 'com.example.generated', // package name
-//            'src/main/resources/wsdl/CountryInfoService.wsdl' // WSDL file
+//           '-p', 'com.example.generated', // package name
+//           'src/main/resources/wsdl/CountryInfoService.wsdl' // WSDL file
 //    ]
 //}
 
