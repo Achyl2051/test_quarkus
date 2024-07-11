@@ -28,6 +28,16 @@ dependencies {
 
     implementation 'com.sun.xml.ws:jaxws-rt:3.0.0'
 
+    // Quarkus and JUnit 5 dependencies for testing
+    testImplementation 'io.quarkus:quarkus-junit5'
+
+    // Mockito dependencies
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+
+    // Rest Assured for testing REST endpoints (optional but commonly used)
+    testImplementation 'io.rest-assured:rest-assured'
+
 }
 
 group 'com.example'

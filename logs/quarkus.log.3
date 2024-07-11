@@ -1,4 +1,48 @@
-2024-07-09 12:02:51,144 desktop-ojeha3k crud-dev.jar[17568] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.log.file.rotation.enabled" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-2024-07-09 12:02:52,850 desktop-ojeha3k crud-dev.jar[17568] INFO  [io.quarkus] (Quarkus Main Thread) crud 1.0-SNAPSHOT on JVM (powered by Quarkus 3.12.0) started in 4.033s. Listening on: http://localhost:8080
-2024-07-09 12:02:52,851 desktop-ojeha3k crud-dev.jar[17568] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2024-07-09 12:02:52,852 desktop-ojeha3k crud-dev.jar[17568] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2024-07-11 11:27:00,374 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.quarkus] (Quarkus Main Thread) crud 1.0-SNAPSHOT on JVM (powered by Quarkus 3.12.0) started in 1.063s. Listening on: http://localhost:8080
+2024-07-11 11:27:00,375 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2024-07-11 11:27:00,376 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, hibernate-orm, jdbc-postgresql, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-openapi, swagger-ui, vertx]
+2024-07-11 11:27:00,376 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-3) Live reload total time: 1.419s 
+2024-07-11 11:28:17,657 desktop-ojeha3k crud-dev.jar[9372] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /magasins/3 failed, error id: 489d4bba-b80c-4f6e-9b31-dcae87ddb78b-1: jakarta.persistence.TransactionRequiredException: Transaction is not active, consider adding @Transactional to your method to automatically activate one.
+	at io.quarkus.hibernate.orm.runtime.session.TransactionScopedSession.remove(TransactionScopedSession.java:166)
+	at org.hibernate.engine.spi.SessionLazyDelegator.remove(SessionLazyDelegator.java:352)
+	at org.hibernate.Session_OpdLahisOZ9nWRPXMsEFQmQU03A_Synthetic_ClientProxy.remove(Unknown Source)
+	at com.example.adapters.MagasinService.delete(MagasinService.java:49)
+	at com.example.adapters.MagasinService_ClientProxy.delete(Unknown Source)
+	at com.example.adapters.resource.MagasinResource.delete(MagasinResource.java:45)
+	at com.example.adapters.resource.MagasinResource$quarkusrestinvoker$delete_791cce8c358ef27b00ddbfef7746c24c0af94f9d.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:599)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2516)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2495)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1521)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+2024-07-11 11:28:23,308 desktop-ojeha3k crud-dev.jar[9372] ERROR [io.qua.ver.htt.run.QuarkusErrorHandler] (executor-thread-1) HTTP Request to /magasins/3 failed, error id: 489d4bba-b80c-4f6e-9b31-dcae87ddb78b-2: jakarta.persistence.TransactionRequiredException: Transaction is not active, consider adding @Transactional to your method to automatically activate one.
+	at io.quarkus.hibernate.orm.runtime.session.TransactionScopedSession.remove(TransactionScopedSession.java:166)
+	at org.hibernate.engine.spi.SessionLazyDelegator.remove(SessionLazyDelegator.java:352)
+	at org.hibernate.Session_OpdLahisOZ9nWRPXMsEFQmQU03A_Synthetic_ClientProxy.remove(Unknown Source)
+	at com.example.adapters.MagasinService.delete(MagasinService.java:49)
+	at com.example.adapters.MagasinService_ClientProxy.delete(Unknown Source)
+	at com.example.adapters.resource.MagasinResource.delete(MagasinResource.java:45)
+	at com.example.adapters.resource.MagasinResource$quarkusrestinvoker$delete_791cce8c358ef27b00ddbfef7746c24c0af94f9d.invoke(Unknown Source)
+	at org.jboss.resteasy.reactive.server.handlers.InvocationHandler.handle(InvocationHandler.java:29)
+	at io.quarkus.resteasy.reactive.server.runtime.QuarkusResteasyReactiveRequestContext.invokeHandler(QuarkusResteasyReactiveRequestContext.java:141)
+	at org.jboss.resteasy.reactive.common.core.AbstractResteasyReactiveContext.run(AbstractResteasyReactiveContext.java:147)
+	at io.quarkus.vertx.core.runtime.VertxCoreRecorder$14.runWith(VertxCoreRecorder.java:599)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2516)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2495)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1521)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+2024-07-11 11:28:47,989 desktop-ojeha3k crud-dev.jar[9372] WARN  [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-5) D:\projet\Quarkus\crud\src\main\java\com\example\adapters\MagasinService.java uses unchecked or unsafe operations., line -1 in D:\projet\Quarkus\crud\src\main\java\com\example\adapters\MagasinService.java
+2024-07-11 11:28:47,991 desktop-ojeha3k crud-dev.jar[9372] WARN  [io.qua.dep.dev.JavaCompilationProvider] (vert.x-worker-thread-5) Recompile with -Xlint:unchecked for details., line -1 in D:\projet\Quarkus\crud\src\main\java\com\example\adapters\MagasinService.java
+2024-07-11 11:28:47,998 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-5) Restarting quarkus due to changes in MagasinService.class.
+2024-07-11 11:28:48,026 desktop-ojeha3k crud-dev.jar[9372] INFO  [io.quarkus] (Quarkus Main Thread) crud stopped in 0.026s
