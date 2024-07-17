@@ -1,4 +1,4 @@
-package com.example.adapters;
+package com.example.adapters.service;
 
 import com.example.domain.Magasin;
 import com.example.ports.MagasinPort;
@@ -26,10 +26,10 @@ public class MagasinService implements MagasinPort {
         }
     }
 
-    @Override
     public List<Magasin> findAll() {
-        return em.createNativeQuery("select * from magasin").getResultList();
+        return em.createNativeQuery("select * from magasin", Magasin.class).getResultList();
     }
+
 
     @Override
     public void save(Magasin magasin) {

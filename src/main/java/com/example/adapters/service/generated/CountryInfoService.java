@@ -1,7 +1,10 @@
 
-package com.example.generated;
+package com.example.adapters.service.generated;
 
 import javax.xml.namespace.QName;
+
+import com.example.ports.generated.CountryInfoServiceSoapType;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.xml.ws.*;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -15,6 +18,7 @@ import java.net.URL;
  * Generated source version: 2.2
  * 
  */
+@ApplicationScoped
 @WebServiceClient(name = "CountryInfoService", targetNamespace = "http://www.oorsprong.org/websamples.countryinfo", wsdlLocation = "file:/D:/projet/Quarkus/crud/src/main/resources/wsdl/CountryInfoService.wsdl")
 public class CountryInfoService
     extends Service

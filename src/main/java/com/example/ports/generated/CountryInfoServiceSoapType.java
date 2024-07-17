@@ -1,6 +1,8 @@
 
-package com.example.generated;
+package com.example.ports.generated;
 
+import com.example.generated.ArrayOftContinent;
+import com.example.generated.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;
@@ -16,6 +18,7 @@ import jakarta.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
+
 @WebService(name = "CountryInfoServiceSoapType", targetNamespace = "http://www.oorsprong.org/websamples.countryinfo")
 @XmlSeeAlso({
     ObjectFactory.class
@@ -49,7 +52,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of currencies ordered by name.
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCurrency
      */
@@ -61,7 +64,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of currencies ordered by code.
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCurrency
      */
@@ -88,7 +91,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of all stored counties ordered by ISO code
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCountryCodeAndName
      */
@@ -100,7 +103,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of all stored counties ordered by country name
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCountryCodeAndName
      */
@@ -112,7 +115,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of all stored counties grouped per continent
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCountryCodeAndNameGroupedByContinent
      */
@@ -169,7 +172,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns the currency ISO code and name for the passed country ISO code
-     * 
+     *
      * @param sCountryISOCode
      * @return
      *     returns com.example.generated.TCurrency
@@ -214,7 +217,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a struct with all the stored country information. Pass the ISO country code
-     * 
+     *
      * @param sCountryISOCode
      * @return
      *     returns com.example.generated.TCountryInfo
@@ -229,7 +232,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns an array with all countries and all the language information stored
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftCountryInfo
      */
@@ -241,7 +244,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns a list of all countries that use the same currency code. Pass a ISO currency code
-     * 
+     *
      * @param sISOCurrencyCode
      * @return
      *     returns com.example.generated.ArrayOftCountryCodeAndName
@@ -256,7 +259,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns an array of languages ordered by name
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftLanguage
      */
@@ -268,7 +271,7 @@ public interface CountryInfoServiceSoapType {
 
     /**
      * Returns an array of languages ordered by code
-     * 
+     *
      * @return
      *     returns com.example.generated.ArrayOftLanguage
      */

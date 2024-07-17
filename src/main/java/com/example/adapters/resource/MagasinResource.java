@@ -1,6 +1,6 @@
 package com.example.adapters.resource;
 
-import com.example.adapters.MagasinService;
+import com.example.adapters.service.MagasinService;
 import com.example.domain.Magasin;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;

@@ -1,5 +1,6 @@
 package com.example.adapters;
 
+import com.example.adapters.service.MagasinService;
 import com.example.domain.Magasin;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -61,7 +62,7 @@ class MagasinServiceTest extends MagasinService {
     @Test
     void testFindAll() {
         Query queryMock = mock(Query.class);
-        when(entityManager.createNativeQuery("select * from magasin")).thenReturn(queryMock);
+        when(entityManager.createNativeQuery("select * from magasin",Magasin.class)).thenReturn(queryMock);
         when(queryMock.getResultList()).thenReturn(magasins);
 
         List<Magasin> result = magasinService.findAll();

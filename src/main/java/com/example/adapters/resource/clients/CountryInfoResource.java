@@ -1,31 +1,22 @@
 package com.example.adapters.resource.clients;
 
+import com.example.adapters.service.clients.CountryInfoServiceClient;
 import com.example.generated.*;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
 @Path("/countryinfo")
 public class CountryInfoResource {
+    @Inject
+    CountryInfoServiceClient countryInfoServiceClient;
 
     @GET
     @Path("/continents")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<TContinent> getListOfContinents() {
-        try {
-            CountryInfoService service = new CountryInfoService();
-            CountryInfoServiceSoapType port = service.getCountryInfoServiceSoap();
-            ArrayOftContinent continents = port.listOfContinentsByName();
-            return continents.getTContinent();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-            return null;
-        }
+    public Response getListOfContinents() {
+        return Response.ok(countryInfoServiceClient.getListOfContinents()).build();
     }
 }

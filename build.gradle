@@ -30,13 +30,12 @@ dependencies {
 
     // Quarkus and JUnit 5 dependencies for testing
     testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.quarkus:quarkus-junit5-mockito'
 
     // Mockito dependencies
     testImplementation 'org.mockito:mockito-core'
     testImplementation 'org.mockito:mockito-junit-jupiter'
 
-    // Rest Assured for testing REST endpoints (optional but commonly used)
-    testImplementation 'io.rest-assured:rest-assured'
 
 }
 
