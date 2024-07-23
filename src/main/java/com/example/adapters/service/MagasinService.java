@@ -1,55 +1,51 @@
 package com.example.adapters.service;
 
+import com.example.adapters.dto.MagasinDTO;
 import com.example.domain.Magasin;
 import com.example.ports.MagasinPort;
+import io.smallrye.mutiny.Uni;
+import io.smallrye.mutiny.Multi;
 import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-
-import java.util.List;
 
 @ApplicationScoped
 public class MagasinService implements MagasinPort {
-    @PersistenceContext
-    EntityManager em;
+
+    @Inject
+    MagasinDTO magasinDTO;
 
     @Override
-    public Magasin findById(int idMagasin) {
-        Magasin magasin =em.find(Magasin.class,idMagasin);
-        if(magasin!=null)
-        {
-            return magasin;
-        }
-        else {
-            throw new IllegalArgumentException("Magasin with ID " + idMagasin + " not found");
-        }
+    public Uni<Magasin> findById(int idMagasin) {
+        return Uni.createFrom().item(() -> magasinDTO.findMagasinById(idMagasin))
+                .onItem().ifNull().failWith(() -> new IllegalArgumentException("Magasin with ID " + idMagasin + " not found"));
     }
-
-    public List<Magasin> findAll() {
-        return em.createNativeQuery("select * from magasin", Magasin.class).getResultList();
-    }
-
 
     @Override
-    public void save(Magasin magasin) {
-        em.persist(magasin);
+    public Multi<Magasin> findAll() {
+        return Multi.createFrom().items(() -> magasinDTO.findAllMagasin().stream());
     }
 
     @Override
     @Transactional
-    public void update(Magasin magasin) {
-        em.merge(magasin);
+    public Uni<Void> save(Magasin magasin) {
+        return Uni.createFrom().voidItem()
+                .onItem().invoke(() -> magasinDTO.saveMagasin(magasin));
     }
 
     @Override
     @Transactional
-    public void delete(int id) {
-        Magasin magasin = em.find(Magasin.class, id);
-        if (magasin != null) {
-            em.remove(magasin);
-        } else {
-            throw new IllegalArgumentException("Magasin with ID " + id + " not found");
-        }
+    public Uni<Void> update(Magasin magasin) {
+        return Uni.createFrom().voidItem()
+                .onItem().invoke(() -> magasinDTO.updateMagasin(magasin));
+    }
+
+    @Override
+    @Transactional
+    public Uni<Void> delete(int idMagasin) {
+        return Uni.createFrom().voidItem()
+                .onItem().invoke(() -> {
+                    magasinDTO.delete(idMagasin);
+                });
     }
 }

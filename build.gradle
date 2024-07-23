@@ -28,6 +28,8 @@ dependencies {
 
     implementation 'com.sun.xml.ws:jaxws-rt:3.0.0'
 
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+
     // Quarkus and JUnit 5 dependencies for testing
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-junit5-mockito'
