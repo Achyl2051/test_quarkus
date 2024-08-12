@@ -1,0 +1,8 @@
+Générer la Clé Privée
+openssl genpkey -algorithm RSA -out jwt/rsaPrivateKey.pem -pkeyopt rsa_keygen_bits:2048
+
+Convertir la Clé Privée en Format PKCS8
+openssl pkcs8 -topk8 -nocrypt -inform pem -in jwt/rsaPrivateKey.pem -outform pem -out jwt/privateKey.pem
+
+Générer la Clé Publique
+openssl rsa -pubout -in jwt/rsaPrivateKey.pem -out jwt/publicKey.pem
